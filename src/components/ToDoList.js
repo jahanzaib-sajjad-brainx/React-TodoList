@@ -5,9 +5,9 @@ import ToDo from './ToDo';
 const ToDoList = ({toDoList, handleToggle, handleDelete, handleUpdate,handleCheck}) => {
     return (
         <div>
-            {toDoList.map(todo => {
+            {toDoList.map((todo,index) => {
                 return (
-                    <ToDo todo={todo} handleToggle={handleToggle} handleDelete={handleDelete} handleUpdate={handleUpdate} handleCheck={handleCheck}/>
+                    <ToDo key={index} todo={todo} handleToggle={handleToggle} handleDelete={handleDelete} handleUpdate={handleUpdate} handleCheck={handleCheck}/>
                 )
             })}
         </div>

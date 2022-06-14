@@ -49,7 +49,6 @@ function App() {
     settoDoList(mapped);
   }
   const handleDelete= (id)=>{
-    
     axios.delete(`/delete-task/${id}`)
     // .then(() => setStatus('Delete successful'));
 
@@ -74,7 +73,7 @@ function App() {
     } 
   }
   const handleCheck=(id)=>{
-    console.log(id);
+  
     try{
       axios.post(`/task-completed/${id}`, {
       })

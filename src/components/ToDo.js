@@ -28,7 +28,7 @@ const ToDo=({todo, handleToggle, handleDelete,handleUpdate, handleCheck})=>{
 
     return (
         <div id={todo.taskid} key={todo.taskid + todo.task} name="todo" value={todo.taskid} onClick={handleClick} className={todo.completed? "todo-complete" : "todo"}>
-            <input type="checkbox" checked={todo.completed} onClick={handleChecked} className="me-2"/>
+            <input type="checkbox" checked={todo.completed} onChange={handleChecked} className="me-2"/>
             {todo.task} 
             <button id={todo.taskid} value={todo.taskid} onClick={Delete} className="delete" >Delete</button>
             <button id={todo.taskid} value={todo.taskid} onClick={handleOpen} >Update</button>
