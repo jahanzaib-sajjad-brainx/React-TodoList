@@ -1,15 +1,7 @@
-import React,{useState} from "react";
+import React from "react";
 import BasicModal from "./BasicModal";
 
-const ToDo=({todo, handleToggle, handleDelete,handleUpdate, handleCheck})=>{
-
-    // const [todoChecked, settodoChecked]=useState(todo.completed);
-
-    const handleClick=(e)=>{
-        e.preventDefault();
-        handleToggle(e.currentTarget.id)
-    
-    }
+const ToDo=({todo,handleDelete,handleUpdate, handleCheck})=>{
     const Delete=(e)=>{
         e.preventDefault();
         handleDelete(e.currentTarget.id)
@@ -27,7 +19,7 @@ const ToDo=({todo, handleToggle, handleDelete,handleUpdate, handleCheck})=>{
     
 
     return (
-        <div id={todo.taskid} key={todo.taskid + todo.task} name="todo" value={todo.taskid} onClick={handleClick} className={todo.completed? "todo-complete" : "todo"}>
+        <div id={todo.taskid} key={todo.taskid + todo.task} name="todo" value={todo.taskid} className={todo.completed? "todo-complete" : "todo"}>
             <input type="checkbox" checked={todo.completed} onChange={handleChecked} className="me-2"/>
             {todo.task} 
             <button id={todo.taskid} value={todo.taskid} onClick={Delete} className="delete" >Delete</button>

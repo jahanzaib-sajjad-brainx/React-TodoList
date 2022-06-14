@@ -42,12 +42,6 @@ function App() {
   
   }, []);
 
-  const handleToggle = (id) => {
-    let mapped = toDoList.map(task => {
-      return task.id === Number(id) ? { ...task, complete: !task.complete } : { ...task};
-    });
-    settoDoList(mapped);
-  }
   const handleDelete= (id)=>{
     axios.delete(`/delete-task/${id}`)
     // .then(() => setStatus('Delete successful'));
@@ -95,7 +89,7 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <ToDoList toDoList={toDoList} handleToggle={handleToggle} handleDelete={handleDelete} handleUpdate={handleUpdate} handleCheck={handleCheck} />
+      <ToDoList toDoList={toDoList} handleDelete={handleDelete} handleUpdate={handleUpdate} handleCheck={handleCheck} />
       <ToDoForm addTask={addTask}/>
     </div>
   );
