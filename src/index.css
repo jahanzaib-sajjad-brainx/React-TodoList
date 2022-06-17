@@ -16,4 +16,26 @@ code {
 }
 .delete{
  margin: 0px 10px 10px 50px;
+} 
+/* todo component */
+.todo-task{
+  width: 500px;
+}
+.todo-div{
+  height: 100vh;
+  margin-top: 150px;
+}
+.center-div{
+  flex-direction: column;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.center{
+  min-width:800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }

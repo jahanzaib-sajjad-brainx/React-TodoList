@@ -10,7 +10,7 @@ const ToDo=({todo,handleDelete,handleUpdate, handleCheck})=>{
     const handleChecked=(e)=>
     {   
             e.preventDefault();
-            handleCheck(todo.taskid);
+            handleCheck(todo._id,todo.completed);
     }
   
     const [open, setOpen] = React.useState(false);
@@ -19,12 +19,19 @@ const ToDo=({todo,handleDelete,handleUpdate, handleCheck})=>{
     
 
     return (
-        <div id={todo.taskid} key={todo.taskid + todo.task} name="todo" value={todo.taskid} className={todo.completed? "todo-complete" : "todo"}>
-            <input type="checkbox" checked={todo.completed} onChange={handleChecked} className="me-2"/>
-            {todo.task} 
-            <button id={todo.taskid} value={todo.taskid} onClick={Delete} className="delete" >Delete</button>
-            <button id={todo.taskid} value={todo.taskid} onClick={handleOpen} >Update</button>
-            <BasicModal open={open} handleOpen={handleOpen} handleClose={handleClose} handleUpdate={handleUpdate} todoTask={todo.task} todoId={todo.taskid}/>
+        <div id={todo._id} key={todo._id + todo.title} name="todo" value={todo._id} className={todo.completed? "todo-complete" : "todo"}>
+            <div className="mb-3 row w-100 ms-5">
+                <div className="col-6">
+                    <input type="checkbox" checked={todo.completed} onChange={handleChecked} className="me-2"/>
+                    <span className="me-5"> {todo.title} </span>
+                </div>
+                <div className="col-6">
+                    <button id={todo._id} value={todo._id} onClick={Delete} className="btn btn-danger me-2" >Delete</button>
+                    <button id={todo._id} value={todo._id} onClick={handleOpen} className="btn btn-primary" >Update</button>
+                </div>
+               
+            </div>
+            <BasicModal open={open} handleOpen={handleOpen} handleClose={handleClose} handleUpdate={handleUpdate} todoTask={todo.title} todoId={todo._id}/>
         </div>
     );
 }
